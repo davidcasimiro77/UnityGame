@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Ground")
+        if(collision.gameObject.name == "Ground" || collision.gameObject.name == "Wall" || collision.gameObject.name == "Platform")
         {
             isGrounded = true;
         }
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.name == "Ground")
+        if(collision.gameObject.name == "Ground" || collision.gameObject.name == "Wall" || collision.gameObject.name == "Platform")
         {
             isGrounded = false;
         }
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isGrounded == true && Input.GetKeyUp(KeyCode.Space))
         {
-            rb.AddForce(new Vector3(0f, 250f,0f));
+            rb.AddForce(new Vector3(0f, 300f,0f));
         }
     }
 
